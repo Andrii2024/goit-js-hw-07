@@ -1,25 +1,12 @@
-// Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює,
-// чи помістяться всі товари в контейнер при пакуванні.
-// Функція оголошує два параметри:
-// products — об’єкт, у якому ключі містять назви товарів,
-//  а їхні значення — кількість цих товарів. Наприклад, { apples: 2, grapes: 4 }.
-// containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
-// Функція має повернути результат перевірки, чи помістяться всі товари в контейнер.
-//  Тобто порахувати загальну кількість товарів в об’єкті products і повернути true,
-//  якщо вона менше або дорівнює containerSize,і false, якщо ні.
-function isEnoughCapacity(products, containerSize) {
-  let totalProducts = 0;
-  for (let product in products) {
-    if (products.hasOwnProperty(product)) {
-      totalProducts += products[product];
-    }
-  }
-  return totalProducts <= containerSize;
-}
-console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
+const categoriesList = document.getElementById('categories');
+const categoriesItems = categoriesList.querySelectorAll('li.item');
 
-console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
+console.log(`Namber of categories: ${categoriesItems.length}`);
 
-console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
+categoriesItems.forEach(category => {
+  const categoryName = category.querySelector('h2').textContent;
+  const categoryItemsCount = category.querySelectorAll('ul > li').length;
 
-console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
+  console.log(`Category: ${categoryName}`);
+  console.log(`Elements: ${categoryItemsCount}`);
+});
