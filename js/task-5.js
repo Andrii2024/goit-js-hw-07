@@ -12,6 +12,5 @@ function onRandomColor(e) {
   const randomColor = getRandomHexColor();
 
   bodyElement.style.backgroundColor = randomColor;
-  divElement.style.backgroundColor = randomColor;
   colorSpan.textContent = randomColor;
 }
